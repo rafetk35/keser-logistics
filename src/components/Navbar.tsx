@@ -224,7 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenNotifications, onOpenRoleM
                       Giriş Yap
                     </button>
                   </div>
-
+{currentUser?.role === 'admin' && (
                   <div className="p-1 space-y-1 max-h-56 overflow-y-auto">
                     {users.map((u) => {
                       const isSelected = u.id === currentUser.id;
@@ -258,7 +258,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenNotifications, onOpenRoleM
                         </button>
                       );
                     })}
-                  </div>
+                  </div>)}
 
                   {permissions.canManageRoles && (
                     <div className="p-2 border-t border-slate-100 mt-1 space-y-1">
