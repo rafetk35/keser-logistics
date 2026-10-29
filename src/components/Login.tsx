@@ -11,7 +11,6 @@ export const Login: React.FC<LoginProps> = ({ users, onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
