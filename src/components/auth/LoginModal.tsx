@@ -113,46 +113,48 @@ export const LoginModal: React.FC = () => {
           </button>
         </form>
 
-        {/* Quick Demo Role Switcher */}
-        <div className="mt-6 pt-4 border-t border-slate-100">
-          <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">
-            Hızlı Test Rolü Seçin (Tek Tıkla Giriş):
-          </span>
+        {/* Quick Demo Role Switcher - Sadece Admin Rolü İçin Görünür */}
+        {currentUser?.role === 'admin' && (
+          <div className="mt-6 pt-4 border-t border-slate-100">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">
+              Hızlı Test Rolü Seçin (Tek Tıkla Giriş):
+            </span>
 
-          <div className="space-y-1.5 max-h-52 overflow-y-auto pr-1">
-            {users.map((u) => {
-              const isActive = u.id === currentUser.id;
+            <div className="space-y-1.5 max-h-52 overflow-y-auto pr-1">
+              {users.map((u) => {
+                const isActive = u.id === currentUser.id;
 
-              return (
-                <button
-                  key={u.id}
-                  onClick={() => quickLoginAs(u.id)}
-                  className={`w-full p-2 rounded-xl text-left flex items-center justify-between border text-xs transition ${
-                    isActive
-                      ? 'bg-indigo-50 border-indigo-300 text-indigo-950 font-bold'
-                      : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div
-                      className={`w-7 h-7 rounded-lg ${u.avatarColor} text-white flex items-center justify-center font-bold text-xs`}
-                    >
-                      {u.name[0]}
+                return (
+                  <button
+                    key={u.id}
+                    onClick={() => quickLoginAs(u.id)}
+                    className={`w-full p-2 rounded-xl text-left flex items-center justify-between border text-xs transition ${
+                      isActive
+                        ? 'bg-indigo-50 border-indigo-300 text-indigo-950 font-bold'
+                        : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div
+                        className={`w-7 h-7 rounded-lg ${u.avatarColor} text-white flex items-center justify-center font-bold text-xs`}
+                      >
+                        {u.name[0]}
+                      </div>
+                      <div>
+                        <span className="font-bold block leading-tight">{u.name}</span>
+                        <span className="text-[10px] text-slate-500">{u.title}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="font-bold block leading-tight">{u.name}</span>
-                      <span className="text-[10px] text-slate-500">{u.title}</span>
-                    </div>
-                  </div>
 
-                  <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white border border-slate-200 uppercase">
-                    {u.role}
-                  </span>
-                </button>
-              );
-            })}
+                    <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white border border-slate-200 uppercase">
+                      {u.role}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
