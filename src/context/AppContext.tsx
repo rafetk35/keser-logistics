@@ -75,7 +75,7 @@ export interface DocumentUploadTarget {
 }
 
 interface AppContextType {
-  currentUser: UserProfile;
+  currentUser: UserProfile | null;
   currentRole: UserRole;
   permissions: RolePermission;
   switchUser: (userId: string) => void;
@@ -305,14 +305,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return saved ? JSON.parse(saved) : INITIAL_USERS;
   });
 
-  const [currentUserId, setCurrentUserId] = useState<string>(() => {
-    return localStorage.getItem('translogix_user_id') || 'user-admin';
-  });
-
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(() => {
+    return localStorage.getItem('translogix_user_id') || null;
+});
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(!currentUserId);
   const [isUserManagementModalOpen, setIsUserManagementModalOpen] = useState(false);
 
-  const currentUser = users.find((u) => u.id === currentUserId) || users[0];
+  const currentUser = users.find((u) => u.id === currentUserId) || null;
   const currentRole = currentUser.role;
 
   // Dynamic Roles (RBAC)
