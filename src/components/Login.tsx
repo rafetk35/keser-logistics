@@ -91,7 +91,7 @@ export const Login: React.FC<LoginProps> = ({ users, onLoginSuccess }) => {
 
         <div className="mt-8 pt-6 border-t border-slate-700/50 text-center">
           <p className="text-xs text-slate-500">
-            Admin Giriş: <span className="text-slate-300 font-mono">serkan@keserlogistics.com</span> / Şifre: <span className="text-slate-300 font-mono">123</span>
+            
           </p>
         </div>
       </div>
