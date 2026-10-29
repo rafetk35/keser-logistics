@@ -6,35 +6,35 @@ export const INITIAL_USERS: UserProfile[] = [
     name: 'Rafet Keser',
     title: 'Şirket Sahibi / Yönetici',
     role: 'admin',
-    email: 'admin@keserlojistik.com.tr',
+    email: 'admin@test.com.tr',
     avatarColor: 'bg-blue-600',
-    password: 'rafetk35'
+    password: '123'
   },
   {
     id: 'u2',
-    name: 'Genel Koordinasyon',
+    name: 'özcan Keser',
     title: 'Genel Koordinatör & Operasyon Müdürü',
     role: 'manager',
-    email: 'koordinasyon@keserlojistik.com.tr',
+    email: 'müdür@test.com.tr',
     avatarColor: 'bg-emerald-600',
-    password: 'rafetk35'
+    password: '123'
   },
   {
     id: 'u3',
-    name: 'Operasyon Birimi',
+    name: 'Burak',
     title: 'Uluslararası Filo & Sefer Operasyon Şefi',
     role: 'operations',
-    email: 'operasyon@keserlojistik.com.tr',
+    email: 'operasyon@test.com.tr',
     avatarColor: 'bg-indigo-600',
-    password: 'rafetk35'
+    password: '123'
   },
   {
     id: 'u4',
-    name: 'Muhasebe Birimi',
+    name: 'Meltem ',
     title: 'Mali İşler & Cari Muhasebe Uzmanı',
     role: 'accounting',
-    email: 'muhasebe@keserlojistik.com.tr',
+    email: 'muhasebe@test.com.tr',
     avatarColor: 'bg-amber-600',
-    password: 'rafetk35'
+    password: '123'
   }
 ];

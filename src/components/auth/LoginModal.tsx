@@ -3,16 +3,10 @@ import { useApp } from '../../context/AppContext';
 import {
   Lock,
   Mail,
-  User,
-  Shield,
   X,
-  Truck,
-  Building2,
   ArrowRight,
   KeyRound,
-  CheckCircle2,
 } from 'lucide-react';
-import { UserRole } from '../../types';
 
 export const LoginModal: React.FC = () => {
   const {
@@ -34,7 +28,9 @@ export const LoginModal: React.FC = () => {
     e.preventDefault();
     setErrorMsg('');
     const success = login(email, password);
-    if (!success) {
+    if (success) {
+      setIsLoginModalOpen(false); // Giriş başarılı olunca modal tek hamlede kapanır
+    } else {
       setErrorMsg('Geçersiz e-posta veya şifre.');
     }
   };
@@ -82,7 +78,7 @@ export const LoginModal: React.FC = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="kullanici@translogix.com"
+                placeholder="admin@keserlojistik.com.tr"
                 className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 font-medium"
               />
             </div>
@@ -101,7 +97,6 @@ export const LoginModal: React.FC = () => {
                 className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 font-mono"
               />
             </div>
-            <p className="text-[10px] text-slate-400 mt-1">Demo şifresi: password123</p>
           </div>
 
           <button
@@ -113,7 +108,7 @@ export const LoginModal: React.FC = () => {
           </button>
         </form>
 
-        {/* Quick Demo Role Switcher - Sadece Admin Rolü İçin Görünür */}
+        {/* Hazır Kapsamlı Kullanıcı ve Rol Listesi - Sadece Admin Rolü İçin Görünür */}
         {currentUser?.role === 'admin' && (
           <div className="mt-6 pt-4 border-t border-slate-100">
             <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">
