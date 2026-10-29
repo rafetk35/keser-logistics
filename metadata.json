@@ -1,0 +1,6 @@
+{
+  "name": "TransLogix - Uluslararası Nakliye & Muhasebe",
+  "description": "Uluslararası lojistik filosu, sefer ve yük takibi, şoför/araç masraf yönetimi, cari ve fatura muhasebesi takip sistemi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
